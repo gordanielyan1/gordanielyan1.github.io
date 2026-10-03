@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gor Danielyan — AI Filmmaker</title>
+<meta name="description" content="Gor Danielyan, AI filmmaker in Yerevan. Cinematic short films, biblical reels and commercials made end to end with generative models.">
+<meta property="og:title" content="Gor Danielyan — AI Filmmaker">
+<meta property="og:description" content="Cinematic films made end to end with generative models: script, characters, shots, edit and sound.">
+<meta property="og:image" content="media/moses.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#18212b;      /* page */
+  --panel:#212c38;      /* raised surfaces */
+  --line:#334253;       /* rules, frame edges */
+  --steel:#6f8faf;      /* accent */
+  --frost:#c9d6e3;      /* secondary text */
+  --white:#eef2f6;      /* primary text */
+  --mute:#8794a2;
+  --gutter:clamp(16px,4vw,56px);
+}
+*{box-sizing:border-box;margin:0}
+html{background:var(--night);color:var(--white);-webkit-text-size-adjust:100%}
+body{font-family:"Archivo",system-ui,sans-serif;font-stretch:100%;font-weight:380;line-height:1.55;font-size:17px;background:var(--night)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--steel);outline-offset:3px}
+img,video{display:block;max-width:100%}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:var(--gutter);align-items:center;padding:var(--gutter)}
+.name{font-stretch:62%;font-weight:800;line-height:.86;letter-spacing:-.01em;font-size:clamp(4rem,11vw,11.5rem);text-transform:uppercase}
+.name span{display:block}
+.name span:last-child{color:var(--steel)}
+.role{margin-top:1.6rem;max-width:30ch;font-size:clamp(1.1rem,1.8vw,1.4rem);color:var(--frost)}
+.hero-links{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;font-size:.95rem}
+.hero-links a{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+.hero-links a:hover{border-color:var(--steel)}
+
+.monitor{justify-self:end;width:min(100%,360px);border:1px solid var(--line);background:#0f151c;padding:10px 10px 0}
+.monitor video,.monitor img{width:100%;aspect-ratio:9/16;object-fit:cover;background:var(--panel)}
+.monitor-bar{display:flex;justify-content:space-between;font-size:.78rem;color:var(--mute);padding:.55rem .1rem;font-variant-numeric:tabular-nums;font-stretch:80%}
+.rec{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--steel);margin-right:.45em;vertical-align:1px}
+
+/* ---------- sections ---------- */
+section{padding:clamp(56px,9vw,120px) var(--gutter)}
+h2{font-stretch:62%;font-weight:760;text-transform:uppercase;font-size:clamp(2.4rem,6vw,4.6rem);line-height:.95;letter-spacing:-.005em}
+.lede{color:var(--frost);max-width:58ch;margin-top:1rem}
+
+/* ---------- work ---------- */
+.group{margin-top:clamp(40px,6vw,72px)}
+.group h3{font-weight:600;font-size:1.05rem;color:var(--frost);padding-bottom:.7rem;border-bottom:1px solid var(--line);margin-bottom:1.2rem;display:flex;justify-content:space-between;gap:1rem}
+.group h3 small{font-weight:380;color:var(--mute);font-size:.9rem}
+.reels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,24px)}
+.reel{all:unset;cursor:pointer;display:block;min-width:0}
+.reel:focus-visible{outline:2px solid var(--steel);outline-offset:4px}
+.frame{position:relative;aspect-ratio:9/16;overflow:hidden;background:var(--panel)}
+.reel.wide{grid-column:span 2}
+.reel.wide .frame{aspect-ratio:16/9}
+.frame img,.frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.frame video{opacity:0;transition:opacity .4s}
+.frame video.on{opacity:1}
+.dur{position:absolute;right:8px;bottom:8px;font-size:.75rem;background:rgba(15,21,28,.75);padding:2px 7px;font-variant-numeric:tabular-nums}
+.reel h4{margin-top:.75rem;font-weight:620;font-size:1.05rem}
+.reel p{color:var(--mute);font-size:.92rem;line-height:1.45;margin-top:.2rem}
+
+/* ---------- process ---------- */
+.steps{list-style:none;padding:0;margin-top:2.4rem;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.steps li{padding:1.4rem 1.4rem 0 0}
+.steps b{display:block;font-stretch:62%;font-weight:760;font-size:2.2rem;color:var(--steel);line-height:1}
+.steps strong{display:block;margin-top:.7rem;font-weight:620}
+.steps span{display:block;color:var(--mute);font-size:.94rem;margin-top:.3rem;max-width:30ch}
+
+/* ---------- tools ---------- */
+.tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.6rem;margin-top:2.4rem}
+.tools dt{color:var(--mute);font-size:.9rem}
+.tools dd{margin-top:.3rem;color:var(--white)}
+
+/* ---------- contact ---------- */
+.contact{border-top:1px solid var(--line)}
+.mail{display:inline-block;margin-top:1.6rem;font-stretch:70%;font-weight:700;font-size:clamp(1.4rem,4.6vw,3.2rem);text-decoration:none;border-bottom:2px solid var(--steel);overflow-wrap:anywhere}
+.contact ul{list-style:none;padding:0;margin-top:1.6rem;display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;color:var(--frost)}
+footer{padding:28px var(--gutter);color:var(--mute);font-size:.85rem}
+
+/* ---------- player ---------- */
+dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100svh}
+dialog::backdrop{background:rgba(12,17,23,.94)}
+.player{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;padding:16px}
+.player video{max-height:calc(100svh - 110px);max-width:100%;background:#000}
+.player-bar{display:flex;gap:1.4rem;align-items:baseline;color:var(--white);width:min(100%,900px);justify-content:space-between}
+.player-bar h4{font-weight:620}
+.close{all:unset;cursor:pointer;color:var(--frost);border-bottom:1px solid var(--line);font-size:.95rem}
+.close:focus-visible{outline:2px solid var(--steel);outline-offset:3px}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;min-height:auto;padding-top:48px}
+  .monitor{justify-self:start;width:min(70%,300px)}
+  .reels{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps,.tools{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps li{padding-bottom:1.2rem}
+}
+@media (max-width:420px){
+  .monitor{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  .frame video{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div>
+    <h1 class="name"><span>Gor</span><span>Danielyan</span></h1>
+    <p class="role">AI filmmaker in Yerevan. I make cinematic films with generative models, from script to final edit and sound.</p>
+    <nav class="hero-links" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <figure class="monitor" aria-label="Showreel preview">
+    <video id="heroVid" src="media/moses-preview.mp4" poster="media/moses.jpg" muted playsinline loop autoplay></video>
+    <figcaption class="monitor-bar"><span><i class="rec"></i>Moses</span><span id="tc">00:00:00:00</span></figcaption>
+  </figure>
+</header>
+
+<main>
+<section id="work">
+  <h2>Selected work</h2>
+  <p class="lede">Every frame on this page was generated: characters, sets, camera moves and light. Editing, grading and sound are mine too. Tap a film to watch it with sound.</p>
+
+  <div class="group">
+    <h3>Biblical films <small>Genesis AI Studio</small></h3>
+    <div class="reels">
+      <button class="reel" data-src="media/moses.mp4" data-title="Moses">
+        <div class="frame"><img src="media/moses.jpg" alt="Moses in a red cloak before Pharaoh"><video data-preview="media/moses-preview.mp4" muted playsinline loop preload="none"></video><span class="dur">0:58</span></div>
+        <h4>Moses</h4><p>Pharaoh's court, a chariot army and the parting sea, with one cast held across every shot.</p>
+      </button>
+      <button class="reel" data-src="media/noah.mp4" data-title="Noah">
+        <div class="frame"><img src="media/noah.jpg" alt="Noah tying a cloth sack"><video data-preview="media/noah-preview.mp4" muted playsinline loop preload="none"></video><span class="dur">0:36</span></div>
+        <h4>Noah</h4><p>Told through hands, wood and rope before the ark meets the storm.</p>
+      </button>
+      <button class="reel" data-src="media/daniel.mp4" data-title="Daniel">
+        <div class="frame"><img src="media/daniel.jpg" alt="Daniel looking up in the lions' den"><video data-preview="media/daniel-preview.mp4" muted playsinline loop preload="none"></video><span class="dur">0:20</span></div>
+        <h4>Daniel</h4><p>A night in the lions' den, built on close performance and an overhead reveal.</p>
+      </button>
+    </div>
+  </div>
+
+  <div class="group">
+    <h3>Cinematic shorts <small>Original stories</small></h3>
+    <div class="reels">
+      <button class="reel" data-src="media/world.mp4" data-title="World">
+        <div class="frame"><img src="media/world.jpg" alt="A red-robed masked figure stepping out of a carriage"><video data-preview="media/world-preview.mp4" muted playsinline loop preload="none"></video><span class="dur">1:02</span></div>
+        <h4>World</h4><p>A minute across machines, launch pads and rain-soaked city streets.</p>
+      </button>
+      <button class="reel" data-src="media/video-1.mp4" data-title="The Stair">
+        <div class="frame"><img src="media/video-1.jpg" alt="A man climbing a lit stairway above a stormy sea"><video data-preview="media/video-1-preview.mp4" muted playsinline loop preload="none"></video><span class="dur">0:19</span></div>
+        <h4>The Stair</h4><p>A lone figure climbs a lit stairway out of a storm-beaten sea.</p>
+      </button>
+      <button class="reel" data-src="media/lucy.mp4" data-title="Lucy">
+        <div class="frame"><img src="media/lucy.jpg" alt="A black panther in the jungle"><video data-preview="media/lucy-preview.mp4" muted playsinline loop preload="none"></video><span class="dur">0:37</span></div>
+        <h4>Lucy</h4><p>A woman and a black panther in a rainforest chase.</p>
+      </button>
+      <button class="reel wide" data-src="media/trend.mp4" data-title="Trend">
+        <div class="frame"><img src="media/trend.jpg" alt="Man and woman arguing in a car"><video data-preview="media/trend-preview.mp4" muted playsinline loop preload="none"></video><span class="dur">0:28</span></div>
+        <h4>Trend</h4><p>A horizontal drama scene: a couple, a car, a café and an argument that will not end.</p>
+      </button>
+    </div>
+  </div>
+
+  <div class="group">
+    <h3>Brand and music <small>Commercial work</small></h3>
+    <div class="reels">
+      <button class="reel" data-src="media/sharf.mp4" data-title="Silk scarves">
+        <div class="frame"><img src="media/sharf.jpg" alt="Three silk scarves: Garden of Aragats, Architecture, Sevan"><video data-preview="media/sharf-preview.mp4" muted playsinline loop preload="none"></video><span class="dur">0:23</span></div>
+        <h4>Silk scarves</h4><p>Product film for a scarf collection: Garden of Aragats, Architecture, Sevan.</p>
+      </button>
+      <button class="reel" data-src="media/bad-liar.mp4" data-title="Bad Liar">
+        <div class="frame"><img src="media/bad-liar.jpg" alt="Woman in a red dress in a jungle lagoon"><video data-preview="media/bad-liar-preview.mp4" muted playsinline loop preload="none"></video><span class="dur">0:29</span></div>
+        <h4>Bad Liar</h4><p>Music video: one character in red through water, lavender and light.</p>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <h2>How a film gets made</h2>
+  <p class="lede">I run the whole cycle alone, and every prompt follows one fixed format: prompt, settings, reference roles and a QA checklist.</p>
+  <ol class="steps">
+    <li><b>1</b><strong>Script and hook</strong><span>Story beats and pacing built for short-form retention.</span></li>
+    <li><b>2</b><strong>Character masters</strong><span>A base face in Midjourney, then reference sheets that lock identity and wardrobe.</span></li>
+    <li><b>3</b><strong>Shot by shot</strong><span>Lens, light and camera move set per shot, then animated and checked for drift and artefacts.</span></li>
+    <li><b>4</b><strong>Edit and sound</strong><span>Cut, grade, music and sound design to the final delivery.</span></li>
+  </ol>
+</section>
+
+<section id="tools">
+  <h2>Tools</h2>
+  <dl class="tools">
+    <div><dt>Image</dt><dd>Midjourney, Nano Banana, Seedream</dd></div>
+    <div><dt>Video</dt><dd>Seedance, Kling, Higgsfield</dd></div>
+    <div><dt>Upscale and finish</dt><dd>Magnific</dd></div>
+    <div><dt>Edit and sound</dt><dd>CapCut, Suno</dd></div>
+  </dl>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <a class="mail" href="mailto:genesisaistudio1@gmail.com">genesisaistudio1@gmail.com</a>
+  <ul>
+    <li><a href="https://www.instagram.com/genesis.ai_studio/" rel="noopener" target="_blank">Instagram @genesis.ai_studio</a></li>
+    <li><a href="https://www.instagram.com/__genesis.ai__/" rel="noopener" target="_blank">Instagram @__genesis.ai__</a></li>
+    <li>Yerevan, Armenia</li>
+  </ul>
+</section>
+</main>
+
+<footer>© 2026 Gor Danielyan</footer>
+
+<dialog id="player" aria-label="Video player">
+  <div class="player">
+    <video id="full" controls playsinline></video>
+    <div class="player-bar"><h4 id="fullTitle"></h4><button class="close" id="close">Close</button></div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // hero timecode follows the preview video
+  var hv = document.getElementById('heroVid'), tc = document.getElementById('tc');
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){var t=hv.currentTime||0;tc.textContent='00:'+pad(Math.floor(t/60))+':'+pad(Math.floor(t%60))+':'+pad(Math.floor((t%1)*30));requestAnimationFrame(tick)}
+  if(reduce){hv.removeAttribute('autoplay');hv.pause()} else requestAnimationFrame(tick);
+
+  // previews play only while on screen
+  if(!reduce && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var v=e.target;
+        if(e.isIntersecting){
+          if(!v.src) v.src=v.dataset.preview;
+          v.play().then(function(){v.classList.add('on')}).catch(function(){});
+        } else { v.pause(); }
+      });
+    },{threshold:.6});
+    document.querySelectorAll('.frame video').forEach(function(v){io.observe(v)});
+  }
+
+  // full player with sound
+  var dlg=document.getElementById('player'), full=document.getElementById('full'), ttl=document.getElementById('fullTitle');
+  document.querySelectorAll('.reel').forEach(function(b){
+    b.addEventListener('click',function(){
+      full.src=b.dataset.src; ttl.textContent=b.dataset.title;
+      dlg.showModal(); full.play().catch(function(){});
+    });
+  });
+  function shut(){full.pause();full.removeAttribute('src');full.load();dlg.close()}
+  document.getElementById('close').addEventListener('click',shut);
+  dlg.addEventListener('cancel',function(e){e.preventDefault();shut()});
+  dlg.addEventListener('click',function(e){if(e.target.classList.contains('player'))shut()});
+})();
+</script>
+</body>
+</html>
